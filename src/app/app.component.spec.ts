@@ -1,5 +1,5 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {TestBed, async} from '@angular/core/testing';
+import {AppComponent} from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -27,5 +27,22 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to jest-app!');
+  });
+
+  describe('sum', () => {
+    it('should return sum of numbers if both truthy', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.debugElement.componentInstance;
+      const a = 2;
+      const b = 4;
+      expect(app.sum(a, b)).toBe(6);
+    });
+    it('should return null if one parameter is falsy', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.debugElement.componentInstance;
+      const a = 0;
+      const b = 4;
+      expect(app.sum(a, b)).toBeNull();
+    });
   });
 });
