@@ -16,4 +16,7 @@ module.exports = {
     "^.+\\.(ts|html)$": "<rootDir>/node_modules/jest-preset-angular/preprocessor.js",
     "^.+\\.js$": "babel-jest"
   },
+  coveragePathIgnorePatterns: [
+    "<rootDir>/src/setup-jest.ts"
+  ]
 };
